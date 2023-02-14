@@ -1,38 +1,371 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body{
+  background-color: azure;
+}
+
+/* .container{
+  max-width: 1080px;
+  margin: 50px auto;
+} */
+
+.navbar-main{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: aqua;
+  padding: 10px  20px;
+  /* margin-bottom: 50px; */
+}
+
+.navbar-search{
+  flex: 0.5;
+}
+
+@media screen and (max-width: 700px) {
+  .navbar-main{
+    flex-direction: column;
+  }
+  .navbar-search{
+    width: 80%;
+    margin: 10px 0;
+  }
+}
+
+
+/* Header Section */
+.header-container{
+  background-color: wheat;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: gray;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-image{
+  width: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-image img{
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header-text{
+  width: 75%;
+  margin: 10px;
+}
+
+
+/* Current Weather Section */
+
+.weather-container{
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 10px -2px 20px 2px rgba(0,0,0,0.3);
   color: white;
+  background-color: #8e8c8c;
+  margin: 20px auto 0 auto;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.weather-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.weather-top h1{
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+.weather-top h3{
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  color: bisque;
+  font-size: 1.3rem;
+  margin-top: 10px;
+  text-transform: capitalize;
+}
+
+.weather-top p{
+  font-size: 2.1rem;
+  padding: 0;
+  margin-bottom: 10px;
+  /* margin-bottom: 5px; */
+  color: greenyellow;
+}
+
+
+.weather-image-pos{
+  width: 150px;
+}
+
+.weather-image{
+  width: 100%;
+}
+
+.weather-center{
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-details{
+  text-align: center;
+  margin: 0;
+}
+
+.weather-details h2{
+  font-size: 1.8rem;
+  font-weight: 100;
+  color: azure;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 15px 0;
+}
+
+.weather-detail-item span{
+  display: block;
+  margin: 5px 0;
+  text-align: center;
+}
+.weather-detail-item span:first-child{
+  font-weight: bold;
+}
+
+.weather-detail-item{
+  background-color: hotpink;
+  color: azure;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0 0 0 1px white;
+  /* margin: 0 2px; */
+}
+
+.button-container{
+  margin: 40px auto;
+  width: 75%;
+  text-align: center;
+
+}
+
+.button-container h2{
+  font-weight: 200;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  color: grey;
+}
+
+.button-container button{
+  width: 40%;
+  padding: 10px 0;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: rgb(57, 57, 213);
+  border: 1px solid blue;
+  color: whitesmoke;
+  margin-top: 25px;
+}
+
+.button-container button:hover{
+  border: 1px solid blue;
+  cursor: pointer;
+  background: transparent;
+  color: rgb(57, 57, 213);
+}
+
+/* -------------------------------------------------/ */
+
+/* Forecast Section */
+
+.forecast-section{
+  background-color: cornsilk;
+  padding: 20px;
+}
+
+.forecast-container{
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.forecast-item{
+  background-color: bisque;
+  margin: 20px 10px;
+  padding: 20px 15px;
+  border-radius: 5px;
+  /* height: 200px; */
+  overflow: hidden;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.forecast-item:hover .forecast-item-top{
+  transform: translateY(-200px);
+}
+
+.forecast-item:hover .forecast-item-bottom{
+  bottom: 0;
+}
+
+
+.forecast-item-top{
+  display: flex;
+  justify-content: space-between;
+  transition: transform 2s;
+  
+}
+
+.forecast-item-bottom{
+  position: absolute;
+  /* height: 100%; */
+  bottom: -15em;
+  transition: bottom 2s;
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
+.forecast-bottom-item{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  /* margin: 0 auto; */
+}
+
+.forecast-item-top h1{
+  /* margin: 0; */
+  font-weight: 200;
+  color: green;
+}
+
+.forecast-item-top img{
+  width: 100px;
+  margin-top: -20px;
+}
+
+.forecast-item-top h3{
+  /* margin-top: -20px; */
+  font-size: 1.8rem;
+  color: orangered;
+}
+
+.forecast-item-top p{
+  color: #8e8c8c;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+.forecast-item-top .bla{
+  color: orangered;
+  font-size: 1.2rem;
+  margin-top: -20px;
+  text-transform: capitalize;
+}
+
+.forecast-item-bottom h1{
+  text-align: center;
+  font-weight: 200;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+.forecast-bottom-item div{
+  background-color: aqua;
+  padding: 5px;
+  width: 80px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.forecast-bottom-item span{
+  display: block;
+  padding-bottom: 5px;
+}
+
+
+@media screen and (min-width: 775px) {
+  .forecast-container{
+    width: 80vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (min-width: 1125px) {
+  .forecast-container{
+    width: 85vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+
+/* Footer Section*/
+
+.footer{
+  background-color: grey;
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 10px 20px;
+  /* height: 100px; */
+}
+
+.footer-container{
+  /* margin: 0 50px; */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: baseline;
+  text-align: center;
+}
+
+
+
+.footer-container h3{
+  text-transform: uppercase;
+}
+
+.footer .footer-icons{
+  font-size: 2rem;
+}
+
+.footer .footer-icons i{
+  margin: 0 20px;
+}
+
+.footer .footer-icons i:hover{
+  cursor: pointer;
+}
+
+.fa-facebook:hover{
+  color: blue;
+}
+
+.fa-instagram:hover{
+  color: rgb(230, 35, 74);
+}
+
+.fa-twitter:hover{
+  color: rgb(52, 239, 52);
+}
+
+.fa-google-plus-g:hover{
+  color: orangered;
 }
