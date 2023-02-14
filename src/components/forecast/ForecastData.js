@@ -14,7 +14,7 @@ const ForecastData = ({item, id}) => {
     const { weather, main, wind,  dt_txt} = item
 
     let bla = new Date(dt_txt)
-    console.log(weekdays[bla.getDay()]);
+    // console.log(weekdays[bla.getDay()]);
     
 
 

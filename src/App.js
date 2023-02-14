@@ -35,9 +35,9 @@ function App() {
     
   }
 
-  console.log(currentWeather);
-  console.log(forecast);
-  console.log(status);
+  // console.log(currentWeather);
+  // console.log(forecast);
+  // console.log(status);
 
   return (
     <>
