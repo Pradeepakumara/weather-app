@@ -19,19 +19,20 @@ function App() {
     console.log(searchData);
     const [lat, lon] = searchData.value.split(' ');
 
-    const currentWeatherFetch = fetch(`${WeatherApiUrl}/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`)
+    const fetchCurrentWeather = async () => {
+      const currentWeather = await fetch(`${WeatherApiUrl}/weather?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`);
+      const weatherResponse = await currentWeather.json();
+      setCurrentWeather({ city: searchData.label, ...weatherResponse });
+    }
+    fetchCurrentWeather();
 
-    const forecastFetch = fetch(`${WeatherApiUrl}/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`)
-
-    Promise.all([currentWeatherFetch, forecastFetch])
-      .then(async (response) => {
-        const weatherResponse = await response[0].json();
-        const forecastResponse = await response[1].json();
-
-        setCurrentWeather({ city: searchData.label, ...weatherResponse });
-        setForecast({ city: searchData.label, ...forecastResponse });
-      })
-      .catch((err) => console.log(err));
+    const fetchForecastWeather = async () => {
+      const forecastWeather = await fetch(`${WeatherApiUrl}/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=metric`)
+      const forecastResponse = await forecastWeather.json();
+      setForecast({ city: searchData.label, ...forecastResponse });
+    }
+    fetchForecastWeather();
+    
   }
 
   console.log(currentWeather);
