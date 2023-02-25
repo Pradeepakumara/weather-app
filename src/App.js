@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Forecast from './components/forecast/Forecast';
 import Header from './components/Header';
 import Search from './components/search/Search';
+import Profile from './assets/profile.JPG';
 
 function App() {
 
@@ -48,6 +49,9 @@ function App() {
         <div className='navbar-search'>
         <Search onSearchChange={handleOnSearch} />
         </div>
+      </div>
+      <div className='profile-brand'>
+        <a href="https://personalpradeepprofile.netlify.app/"><img src={Profile} alt="profile" /></a>
       </div>
       <Header />
     <div className="container">
